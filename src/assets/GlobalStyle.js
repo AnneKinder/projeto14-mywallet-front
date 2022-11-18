@@ -55,12 +55,15 @@ body{
   background-color: lavender; //#8C11BE;
   font-family: 'Raleway', sans-serif;
 	font-weight: 400;
+	box-sizing: border-box;
+}
 
-	
+*{
+	box-sizing: border-box;
 }
 
 
-h2{
+h1{
 	font-family: 'Raleway';
 font-style: normal;
 font-weight: 700;
