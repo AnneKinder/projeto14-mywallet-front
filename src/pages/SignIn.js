@@ -19,7 +19,7 @@ export default function SignIn() {
   }
 
   return (
-    <LoginStyle>
+    <SignInSty>
       <img src={logo} alt="logo" />
       <form onSubmit={sendData}>
         <input
@@ -43,11 +43,11 @@ export default function SignIn() {
       <p onClick={() => console.log("submit")}>
         Priimeira vez? Cadastre-se!
       </p>
-    </LoginStyle>
+    </SignInSty>
   );
 }
 
-const LoginStyle = styled.div`
+const SignInSty = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
