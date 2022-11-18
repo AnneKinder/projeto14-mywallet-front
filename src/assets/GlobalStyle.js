@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { browserRouter } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -52,13 +53,20 @@ body{
   flex-direction: column;
   align-items: center;
   background-color: lavender; //#8C11BE;
+  font-family: 'Raleway', sans-serif;
+	font-weight: 400;
 
 	
 }
 
-*{
-	font-family: 'Raleway', sans-serif;
-	font-weight: 400;
+
+h2{
+	font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 26px;
+color: #FFFFFF;
+padding:15px;
 }
 
 `;

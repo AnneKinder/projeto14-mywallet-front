@@ -4,20 +4,17 @@ import { useState } from "react";
 import logo from "../assets/logo.png";
 
 export default function SignUp() {
-
- 
   let [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
-    confirmp:""
+    confirmp: "",
   });
 
   function sendData(e) {
     e.preventDefault();
 
-   
-console.log(form)
+    console.log(form);
   }
 
   function handleForm(e) {
@@ -28,17 +25,16 @@ console.log(form)
   }
 
   return (
-    <SignUpSty >
-      <img src={logo}  alt="logo" />
+    <SignUpSty>
+      <img src={logo} alt="logo" />
       <form onSubmit={sendData}>
-      <input
+        <input
           name="name"
           type="text"
           placeholder="Nome"
           required
           onChange={handleForm}
           value={form.name}
-          
         />
 
         <input
@@ -48,7 +44,6 @@ console.log(form)
           required
           onChange={handleForm}
           value={form.email}
-          
         />
         <input
           name="password"
@@ -57,9 +52,8 @@ console.log(form)
           required
           onChange={handleForm}
           value={form.password}
-          
         />
-      
+
         <input
           name="confirmp"
           type="password"
@@ -67,11 +61,13 @@ console.log(form)
           required
           onChange={handleForm}
           value={form.confirmp}
-         
         />
-        <button type="submit" > Cadastrar </button>
+        <button type="submit"> Cadastrar </button>
       </form>
-      <p onClick={() => console.log("Vai pro login")}> Já tem uma conta? Entre agora! </p>
+      <p onClick={() => console.log("Vai pro login")}>
+        {" "}
+        Já tem uma conta? Entre agora!{" "}
+      </p>
     </SignUpSty>
   );
 }
@@ -85,13 +81,13 @@ const SignUpSty = styled.div`
 
   img {
     width: 190px;
-    padding:30px;
+    padding: 30px;
   }
   form {
     display: flex;
     flex-direction: column;
   }
-  
+
   input {
     box-sizing: border-box;
     width: 303px;
@@ -135,5 +131,3 @@ const SignUpSty = styled.div`
     color: purple;
   }
 `;
-
-
