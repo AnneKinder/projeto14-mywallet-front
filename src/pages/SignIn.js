@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 import logo from "../assets/logo.png";
 
 export default function SignIn() {
-
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,16 @@ const navigate = useNavigate()
   function sendData(e) {
     e.preventDefault();
 
-    console.log(body);
+    if (body.email && body.password) {
+      axios
+        .post("http://localhost:5000/", body)
+        .then((res) => {
+          navigate("/feed");
+        })
+        .catch((err) => alert(err.response.data));
+    } else {
+      alert("Preencha todos os campos!");
+    }
   }
 
   return (
@@ -44,9 +53,7 @@ const navigate = useNavigate()
         />
         <button type="submit">Entrar</button>
       </form>
-      <p onClick={() => navigate("/sign-up")}>
-        Priimeira vez? Cadastre-se!
-      </p>
+      <p onClick={() => navigate("/sign-up")}>Primeira vez? Cadastre-se!</p>
     </SignInSty>
   );
 }
@@ -60,7 +67,7 @@ const SignInSty = styled.div`
 
   img {
     width: 190px;
-    padding:30px;
+    padding: 30px;
   }
 
   form {
@@ -88,7 +95,7 @@ const SignInSty = styled.div`
     width: 303px;
     height: 45px;
     background: purple;
-     border-radius: 4.63636px;
+    border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;
     line-height: 26px;
