@@ -69,7 +69,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 26px;
 color: #FFFFFF;
-padding:15px;
+padding: 23px 15px 12px 0;
 }
 
 `;

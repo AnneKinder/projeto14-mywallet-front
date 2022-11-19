@@ -83,8 +83,6 @@ const SignInSty = styled.div`
   button {
     width: 303px;
     height: 45px;
-    left: 36px;
-    top: 381px;
     background: purple;
      border-radius: 4.63636px;
     font-weight: 400;
