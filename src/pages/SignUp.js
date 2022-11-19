@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import logo from "../assets/logo.png";
 
 export default function SignUp() {
@@ -14,7 +16,17 @@ export default function SignUp() {
   function sendData(e) {
     e.preventDefault();
 
-    console.log(form);
+    if (form.password != form.confirmp) {
+      alert("As senhas não conferem. Por favor, redigite.");
+    } else {
+      axios
+        .post("http://localhost:5000/sign-up", form)
+        .then((res) => {
+          alert("Usuário criado");
+          //navigate to Sign-in
+        })
+        .catch((err) => console.log(err.response.data.message));
+    }
   }
 
   function handleForm(e) {
