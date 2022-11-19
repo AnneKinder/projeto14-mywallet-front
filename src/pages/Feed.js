@@ -1,8 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useNavigate, useEffect } from "react";
+import { AuthContext } from "../context/auth.js";
+import { useNavigate } from 'react-router-dom';
 
 export default function Feed() {
+
+const navigate = useNavigate()
+
+const {token, setToken} = React.useContext(AuthContext)
+
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+}
+
+useEffect(() => {
+
+  axios.get("http://localhost:5000/feed", config)
+  .then((res) => console.log(res.data))
+  .catch((err)=> console.log(err.response.data))
+
+}, [])
+
+
+
+
+
+
+
+
   return (
     <>
       <h1> Olá, NOME </h1>

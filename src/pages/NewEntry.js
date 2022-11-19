@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useNavigate } from "react";
 import {AddScreen} from '../assets/AddScreen.js'
+import { useNavigate } from 'react-router-dom';
 
 export default function NewEntry() {
+  const navigate = useNavigate()
+
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
 
@@ -14,6 +17,24 @@ export default function NewEntry() {
 
   function sendEntry(e) {
     e.preventDefault();
+
+
+    if(entry.valor && entry.descricao){
+
+      axios.post("http://localhost:5000/new-entry", entry)
+      .then((res) => {
+        console.log(res.data)
+        navigate("/feed")
+      })
+      .catch((err) => console.log(err.response.data))
+
+
+
+    }else{
+      alert ("Insira todos os dados!")
+    }
+
+
 
     console.log(entry);
   }

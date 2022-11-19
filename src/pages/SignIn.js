@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AuthContext } from "../context/auth.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
@@ -7,6 +8,8 @@ import logo from "../assets/logo.png";
 
 export default function SignIn() {
   const navigate = useNavigate();
+
+const {token, setToken} = React.useContext(AuthContext)
 
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +26,7 @@ export default function SignIn() {
       axios
         .post("http://localhost:5000/", body)
         .then((res) => {
+          setToken(res.data)
           navigate("/feed");
         })
         .catch((err) => alert(err.response.data));
