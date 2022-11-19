@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import {AddScreen} from '../assets/AddScreen.js'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 export default function NewEntry() {
@@ -26,17 +26,13 @@ export default function NewEntry() {
         console.log(res.data)
         navigate("/feed")
       })
-      .catch((err) => console.log(err.response.data))
-
+      .catch((err) => alert(err.response.data))
 
 
     }else{
-      alert ("Insira todos os dados!")
+      alert("Insira todos os dados!")
     }
 
-
-
-    console.log(entry);
   }
 
   return (
@@ -47,7 +43,7 @@ export default function NewEntry() {
       <form onSubmit={sendEntry}>
         <input
           name="valor"
-          type="number"
+          type="text"
           placeholder="Valor"
           value={valor}
           onChange={(e) => setValor(e.target.value)}

@@ -1,9 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import { useState } from "react";
 import {AddScreen} from '../assets/AddScreen.js'
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 export default function NewExit() {
+const navigate = useNavigate()
+
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
 
@@ -15,7 +18,25 @@ export default function NewExit() {
   function sendExit(e) {
     e.preventDefault();
 
-    console.log(exit);
+
+    if(exit.valor && exit.descricao){
+
+      axios.post("http://localhost:5000/new-exit", exit)
+      .then((res) => {
+        console.log(res.data)
+        navigate("/feed")
+      })
+      .catch((err) => alert(err.response.data))
+
+
+    }else{
+      alert("Insira todos os dados!")
+    }
+
+
+
+
+    
   }
 
   return (
@@ -26,7 +47,7 @@ export default function NewExit() {
       <form onSubmit={sendExit}>
         <input
           name="valor"
-          type="number"
+          type="text"
           placeholder="Valor"
           value={valor}
           onChange={(e) => setValor(e.target.value)}

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useNavigate, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.js";
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 export default function Feed() {
@@ -26,11 +27,6 @@ useEffect(() => {
 
 
 
-
-
-
-
-
   return (
     <>
       <h1> Olá, NOME </h1>
@@ -38,11 +34,11 @@ useEffect(() => {
             Não há registros de entrada e saída
         </RegistryList>
         <AddContainer>
-        <AddSty>
+        <AddSty onClick={() => navigate("/new-entry")}>
            <h2>+</h2> 
-            <h2>Nova entrada</h2>
+            <h2 >Nova entrada</h2>
         </AddSty>
-        <AddSty>
+        <AddSty onClick={() => navigate("/new-exit")}>
             <h2>-</h2>
             <h2>Nova saída</h2>
         </AddSty>
