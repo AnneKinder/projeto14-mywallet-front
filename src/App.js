@@ -16,7 +16,6 @@ export default function App() {
         <Route path="/feed" element={<Feed/>} />
         <Route path="/new-entry" element={<NewEntry/>} />
         <Route path="/new-exit" element={<NewExit/>} />
-       
       </Routes>
     </BrowserRouter>
   );

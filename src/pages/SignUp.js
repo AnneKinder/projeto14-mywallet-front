@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../assets/logo.png";
 
 export default function SignUp() {
+
+const navigate = useNavigate()
+
   let [form, setForm] = useState({
     name: "",
     email: "",
@@ -23,7 +26,8 @@ export default function SignUp() {
         .post("http://localhost:5000/sign-up", form)
         .then((res) => {
           alert("Usuário criado");
-          //navigate to Sign-in
+          navigate("/sign-in")
+        
         })
         .catch((err) => console.log(err.response.data.message));
     }
@@ -76,7 +80,7 @@ export default function SignUp() {
         />
         <button type="submit"> Cadastrar </button>
       </form>
-      <p onClick={() => console.log("Vai pro login")}>
+      <p onClick={() => navigate("/sign-in")}>
         {" "}
         Já tem uma conta? Entre agora!{" "}
       </p>
