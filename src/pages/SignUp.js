@@ -26,7 +26,7 @@ const navigate = useNavigate()
         .post("http://localhost:5000/sign-up", form)
         .then((res) => {
           alert("Usuário criado");
-          navigate("/sign-in")
+          navigate("/")
         
         })
         .catch((err) => console.log(err.response.data.message));
@@ -80,10 +80,7 @@ const navigate = useNavigate()
         />
         <button type="submit"> Cadastrar </button>
       </form>
-      <p onClick={() => navigate("/sign-in")}>
-        {" "}
-        Já tem uma conta? Entre agora!{" "}
-      </p>
+      <p onClick={() => navigate("/")}>Já tem uma conta? Entre agora!</p>
     </SignUpSty>
   );
 }

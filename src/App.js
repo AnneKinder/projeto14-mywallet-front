@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/sign-in" element={<SignIn/>} />
+        <Route path="/" element={<SignIn/>} />
         <Route path="/sign-up" element={<SignUp/>} />
         <Route path="/feed" element={<Feed/>} />
         <Route path="/new-entry" element={<NewEntry/>} />
