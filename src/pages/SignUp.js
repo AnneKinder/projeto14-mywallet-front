@@ -21,6 +21,7 @@ const navigate = useNavigate()
 
     if (form.password != form.confirmp) {
       alert("As senhas não conferem. Por favor, redigite.");
+      
     } else {
       axios
         .post("http://localhost:5000/sign-up", form)
@@ -29,7 +30,7 @@ const navigate = useNavigate()
           navigate("/")
         
         })
-        .catch((err) => console.log(err.response.data.message));
+        .catch((err) => alert(err.response.data));
     }
   }
 
@@ -42,7 +43,7 @@ const navigate = useNavigate()
 
   return (
     <SignUpSty>
-      <img src={logo} alt="logo" />
+      <img src={logo} alt="logo" onClick={()=> navigate("/")} />
       <form onSubmit={sendData}>
         <input
           name="name"

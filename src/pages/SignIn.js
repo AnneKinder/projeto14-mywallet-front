@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function SignIn() {
+
+const navigate = useNavigate()
+
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +44,7 @@ export default function SignIn() {
         />
         <button type="submit">Entrar</button>
       </form>
-      <p onClick={() => console.log("submit")}>
+      <p onClick={() => navigate("/sign-up")}>
         Priimeira vez? Cadastre-se!
       </p>
     </SignInSty>
