@@ -108,7 +108,7 @@ const SignUpSty = styled.div`
     height: 45px;
     left: 36px;
     top: 279px;
-    background: lavenderblush;
+    background: white;
     border: 1px solid #d5d5d5;
     border-radius: 5px;
     font-weight: 400;
@@ -124,7 +124,7 @@ const SignUpSty = styled.div`
     height: 45px;
     left: 36px;
     top: 381px;
-    background: purple;
+    background: #A328D6;
     border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;
@@ -137,11 +137,11 @@ const SignUpSty = styled.div`
   p {
     margin-top: 24px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 13.976px;
     line-height: 17px;
     text-align: center;
     text-decoration-line: underline;
-    color: purple;
+    color: white;
   }
 `;

@@ -52,7 +52,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lavender; //#8C11BE;
+  background-color: #8C11BE;
   font-family: 'Raleway', sans-serif;
 	font-weight: 400;
 	box-sizing: border-box;

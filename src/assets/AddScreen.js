@@ -17,7 +17,7 @@ export const AddScreen = styled.div`
     height: 45px;
     left: 36px;
     top: 279px;
-    background-color: lavenderblush;
+    background-color: white;
     border: 1px solid #d5d5d5;
     border-radius: 5px;
     font-weight: 400;
@@ -33,7 +33,7 @@ export const AddScreen = styled.div`
     height: 45px;
     left: 36px;
     top: 381px;
-    background: purple;
+    background: #A328D6;
      border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;

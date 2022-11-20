@@ -20,6 +20,7 @@ const [moves, setMoves] = useState(
   ])
 
 
+
 const config = {
   headers: {
     Authorization: `Bearer ${token}`,
@@ -42,15 +43,22 @@ useEffect(() => {
     <>
       <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
-          {moves.length===0? <p>Não há registros de entrada e saída</p> :   moves.map((move, id) => (
-            <MovementSty colorprop={move.type==="entry"? "green" : "red"}
-            key={id}
-            >
+          {moves.length===0? <p>Não há registros de entrada e saída</p> :   
+          <>
+          {moves.map((move, id) => (
+            <MovementSty colorprop={move.type==="entry"? "green" : "red"} key={id}>
             <h3> {move.data} </h3>
             <h4> {move.descricao} </h4>
             <h5> {move.valor} </h5>
             </MovementSty>
           ))}
+          
+          <SaldoSty>
+            <h3>SALDO</h3>
+            <h4>R$ qt?</h4>
+            </SaldoSty>
+          </>
+          }
           
           
         
@@ -147,7 +155,30 @@ padding: 2px;
   font-size: 16px;
   line-height: 19px;
   text-align: right;
-  color: ${(props) => props.colorprop};
-  //  
+  color: ${(props) => props.colorprop};  
   }
+`
+
+const SaldoSty = styled.div`
+box-sizing: border-box;
+width: 320px;
+display: flex;
+justify-content: space-between;
+padding: 2px;
+margin-top: 365px;
+
+  h3{
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    color: #000000;
+  }
+
+  h4{
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    color: ${(props) => props.colorprop};  
+  }
+
 `
