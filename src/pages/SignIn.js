@@ -26,7 +26,8 @@ const {token, setToken} = React.useContext(AuthContext)
       axios
         .post("http://localhost:5000/", body)
         .then((res) => {
-          setToken(res.data)
+          setToken(res.data.token)
+          console.log(res.data)
           navigate("/feed");
         })
         .catch((err) => alert(err.response.data));

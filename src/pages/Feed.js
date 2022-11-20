@@ -10,6 +10,8 @@ export default function Feed() {
 const navigate = useNavigate()
 
 const {token, setToken} = React.useContext(AuthContext)
+const [moves, setMoves] = useState([{data: "00/00", descricao: "ixiii", valor: "00,00"}, {data: "04/10", descricao: "dois", valor: "50,00"}])
+
 
 const config = {
   headers: {
@@ -20,7 +22,9 @@ const config = {
 useEffect(() => {
 
   axios.get("http://localhost:5000/feed", config)
-  .then((res) => console.log(res.data))
+  .then((res) => {
+    console.log(res.data)
+  })
   .catch((err)=> console.log(err.response.data))
 
 }, [])
@@ -32,6 +36,14 @@ useEffect(() => {
       <h1> Olá, NOME </h1>
         <RegistryList>
             Não há registros de entrada e saída
+        {moves.map((move) => (
+          <>
+          <div> {move.data} </div>
+          <div> {move.descricao} </div>
+          <div> {move.valor} </div>
+          </>
+        ))}
+
         </RegistryList>
         <AddContainer>
         <AddSty onClick={() => navigate("/new-entry")}>

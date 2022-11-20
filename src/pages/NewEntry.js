@@ -3,9 +3,13 @@ import { useState } from "react";
 import {AddScreen} from '../assets/AddScreen.js'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../context/auth.js";
+
 
 export default function NewEntry() {
   const navigate = useNavigate()
+
+  const {token, setToken} = React.useContext(AuthContext)
 
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -13,6 +17,7 @@ export default function NewEntry() {
   const entry = {
     valor: valor,
     descricao: descricao,
+    //token
   };
 
   function sendEntry(e) {

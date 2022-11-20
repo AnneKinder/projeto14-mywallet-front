@@ -3,9 +3,13 @@ import { useState } from "react";
 import {AddScreen} from '../assets/AddScreen.js'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { AuthContext } from "../context/auth.js";
+
 
 export default function NewExit() {
-const navigate = useNavigate()
+  const navigate = useNavigate()
+
+  const {token, setToken} = React.useContext(AuthContext)
 
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -13,6 +17,7 @@ const navigate = useNavigate()
   const exit = {
     valor: valor,
     descricao: descricao,
+    //token
   };
 
   function sendExit(e) {
