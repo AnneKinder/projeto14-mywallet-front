@@ -42,14 +42,16 @@ useEffect(() => {
     <>
       <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
-            {/* Não há registros de entrada e saída */}
-        {moves.map((move) => (
-          <>
-          <p> {move.data} </p>
-          <p> {move.descricao} </p>
-          <p> {move.valor} </p>
-          </>
-        ))}
+          {moves.length===0? "Não há registros de entrada e saída" :   moves.map((move) => (
+            <MovementSty colorprop={move.type==="entry"? "green" : "red"}>
+            <h3> {move.data} </h3>
+            <h4> {move.descricao} </h4>
+            <h5> {move.valor} </h5>
+            </MovementSty>
+          ))}
+          
+          
+        
 
         </RegistryList>
         <AddContainer>
@@ -73,6 +75,7 @@ const RegistryList = styled.div`
 background-color: lightblue;
 display: flex;
 align-items: center;
+justify-content: center;
 width: 326px;
 height: 446px;
 background: #FFFFFF;
@@ -105,4 +108,37 @@ padding: 18px 13px;
 h2{
     width:15px;
 }
+`
+
+const MovementSty = styled.div`
+box-sizing: border-box;
+width: 320px;
+display: flex;
+justify-content: space-between;
+background-color: lightcyan;
+padding: 2px;
+
+  h3{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C6C6C6;
+  }
+
+  h4{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+  }
+
+  h5{
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: ${(props) => props.colorprop};
+  //  
+  }
 `
