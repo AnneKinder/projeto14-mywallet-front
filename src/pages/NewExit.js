@@ -4,6 +4,7 @@ import {AddScreen} from '../assets/AddScreen.js'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { AuthContext } from "../context/auth.js";
+import dayjs from "dayjs";
 
 
 export default function NewExit() {
@@ -17,6 +18,8 @@ export default function NewExit() {
   const exit = {
     valor: valor,
     descricao: descricao,
+    data: dayjs().format("DD/MM"),
+    type: "exit"
     //token
   };
 

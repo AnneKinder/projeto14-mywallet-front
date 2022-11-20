@@ -18,7 +18,8 @@ export default function NewEntry() {
   const entry = {
     valor: valor,
     descricao: descricao,
-    //data
+    data: dayjs().format("DD/MM"),
+    type: "entry"
     //token
   };
 

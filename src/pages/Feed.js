@@ -42,8 +42,10 @@ useEffect(() => {
     <>
       <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
-          {moves.length===0? <p>Não há registros de entrada e saída</p> :   moves.map((move) => (
-            <MovementSty colorprop={move.type==="entry"? "green" : "red"}>
+          {moves.length===0? <p>Não há registros de entrada e saída</p> :   moves.map((move, id) => (
+            <MovementSty colorprop={move.type==="entry"? "green" : "red"}
+            key={id}
+            >
             <h3> {move.data} </h3>
             <h4> {move.descricao} </h4>
             <h5> {move.valor} </h5>
