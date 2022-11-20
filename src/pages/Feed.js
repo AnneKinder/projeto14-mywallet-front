@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.js";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs'
 
 export default function Feed() {
 
@@ -14,8 +15,8 @@ const {currentUser, setCurrentUser} = React.useContext(AuthContext)
 
 const [moves, setMoves] = useState(
   [
-    {data: "00/00", descricao: "ixiii", valor: "00,00", type:"entry"}, 
-    {data: "04/10", descricao: "dois", valor: "50,00", type:"exit"}
+    // {data: "00/00", descricao: "ixiii", valor: "00,00", type:"entry"}, 
+    {data: dayjs().format("DD/MM"), descricao: "dois", valor: "50,00", type:"exit"}
   ])
 
 
@@ -41,12 +42,12 @@ useEffect(() => {
     <>
       <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
-            Não há registros de entrada e saída
+            {/* Não há registros de entrada e saída */}
         {moves.map((move) => (
           <>
-          <div> {move.data} </div>
-          <div> {move.descricao} </div>
-          <div> {move.valor} </div>
+          <p> {move.data} </p>
+          <p> {move.descricao} </p>
+          <p> {move.valor} </p>
           </>
         ))}
 

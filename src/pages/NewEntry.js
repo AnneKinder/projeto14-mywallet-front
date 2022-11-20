@@ -4,6 +4,7 @@ import {AddScreen} from '../assets/AddScreen.js'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../context/auth.js";
+import dayjs from 'dayjs'
 
 
 export default function NewEntry() {
@@ -17,6 +18,7 @@ export default function NewEntry() {
   const entry = {
     valor: valor,
     descricao: descricao,
+    //data
     //token
   };
 
