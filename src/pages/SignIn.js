@@ -9,7 +9,7 @@ import logo from "../assets/logo.png";
 export default function SignIn() {
   const navigate = useNavigate();
 
-const {token, setToken} = React.useContext(AuthContext)
+const {token, setToken, currentUser, setCurrentUser} = React.useContext(AuthContext)
 
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ const {token, setToken} = React.useContext(AuthContext)
         .post("http://localhost:5000/", body)
         .then((res) => {
           setToken(res.data.token)
-          console.log(res.data)
+          setCurrentUser(res.data.user)
           navigate("/feed");
         })
         .catch((err) => alert(err.response.data));

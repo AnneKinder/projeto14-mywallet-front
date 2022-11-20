@@ -10,7 +10,13 @@ export default function Feed() {
 const navigate = useNavigate()
 
 const {token, setToken} = React.useContext(AuthContext)
-const [moves, setMoves] = useState([{data: "00/00", descricao: "ixiii", valor: "00,00"}, {data: "04/10", descricao: "dois", valor: "50,00"}])
+const {currentUser, setCurrentUser} = React.useContext(AuthContext)
+
+const [moves, setMoves] = useState(
+  [
+    {data: "00/00", descricao: "ixiii", valor: "00,00", type:"entry"}, 
+    {data: "04/10", descricao: "dois", valor: "50,00", type:"exit"}
+  ])
 
 
 const config = {
@@ -33,7 +39,7 @@ useEffect(() => {
 
   return (
     <>
-      <h1> Olá, NOME </h1>
+      <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
             Não há registros de entrada e saída
         {moves.map((move) => (
