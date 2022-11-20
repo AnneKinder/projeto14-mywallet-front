@@ -15,7 +15,7 @@ const {currentUser, setCurrentUser} = React.useContext(AuthContext)
 
 const [moves, setMoves] = useState(
   [
-    // {data: "00/00", descricao: "ixiii", valor: "00,00", type:"entry"}, 
+    {data: "00/00", descricao: "ixiii", valor: "00,00", type:"entry"}, 
     {data: dayjs().format("DD/MM"), descricao: "dois", valor: "50,00", type:"exit"}
   ])
 
@@ -42,7 +42,7 @@ useEffect(() => {
     <>
       <h1> Olá, {currentUser.name} </h1>
         <RegistryList>
-          {moves.length===0? "Não há registros de entrada e saída" :   moves.map((move) => (
+          {moves.length===0? <p>Não há registros de entrada e saída</p> :   moves.map((move) => (
             <MovementSty colorprop={move.type==="entry"? "green" : "red"}>
             <h3> {move.data} </h3>
             <h4> {move.descricao} </h4>
@@ -74,17 +74,25 @@ useEffect(() => {
 const RegistryList = styled.div`
 background-color: lightblue;
 display: flex;
+flex-direction: column;
+flex-wrap: wrap;
 align-items: center;
-justify-content: center;
+
 width: 326px;
 height: 446px;
 background: #FFFFFF;
 border-radius: 5px;
-font-family: 'Raleway';
+
+
+p{
+  font-family: 'Raleway';
 font-weight: 400;
 font-size: 20px;
 text-align: center;
 color: #868686;
+margin: 200px 40px;
+}
+
 `
 
 const AddContainer = styled.div`
@@ -115,7 +123,6 @@ box-sizing: border-box;
 width: 320px;
 display: flex;
 justify-content: space-between;
-background-color: lightcyan;
 padding: 2px;
 
   h3{
