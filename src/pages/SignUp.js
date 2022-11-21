@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../assets/logo.png";
 
 export default function SignUp() {
-
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
   let [form, setForm] = useState({
     name: "",
@@ -21,14 +20,12 @@ const navigate = useNavigate()
 
     if (form.password != form.confirmp) {
       alert("As senhas não conferem. Por favor, redigite.");
-      
     } else {
       axios
         .post("http://localhost:5000/sign-up", form)
         .then((res) => {
           alert("Usuário criado");
-          navigate("/")
-        
+          navigate("/");
         })
         .catch((err) => alert(err.response.data));
     }
@@ -43,7 +40,7 @@ const navigate = useNavigate()
 
   return (
     <SignUpSty>
-      <img src={logo} alt="logo" onClick={()=> navigate("/")} />
+      <img src={logo} alt="logo" onClick={() => navigate("/")} />
       <form onSubmit={sendData}>
         <input
           name="name"
@@ -124,7 +121,7 @@ const SignUpSty = styled.div`
     height: 45px;
     left: 36px;
     top: 381px;
-    background: #A328D6;
+    background: #a328d6;
     border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;

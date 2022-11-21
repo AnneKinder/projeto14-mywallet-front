@@ -34,7 +34,7 @@ export const AddScreen = styled.div`
     left: 36px;
     top: 381px;
     background: #A328D6;
-     border-radius: 4.63636px;
+    border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;
     line-height: 26px;

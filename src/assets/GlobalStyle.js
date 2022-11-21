@@ -48,12 +48,12 @@ table {
 }
 body{
 	width: 100vw;
-  min-height: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #8C11BE;
-  font-family: 'Raleway', sans-serif;
+  	min-height: 100vw;
+  	display: flex;
+  	flex-direction: column;
+ 	align-items: center;
+ 	background-color: #8C11BE;
+  	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
 	box-sizing: border-box;
 }
@@ -65,11 +65,11 @@ body{
 
 h1{
 	font-family: 'Raleway';
-font-style: normal;
-font-weight: 700;
-font-size: 26px;
-color: #FFFFFF;
-padding: 23px 15px 12px 0;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	color: #FFFFFF;
+	padding: 23px 15px 12px 0;
 }
 
 `;
