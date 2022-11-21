@@ -31,6 +31,23 @@ export default function Feed() {
       .catch((err) => console.log(err.response.data));
   }, []);
 
+
+let soma = 0
+let menos = 0
+moves.map((obj)=>{
+if(obj.type==="entry"){
+soma+= Number(obj.valor)
+}
+
+if(obj.type==="exit"){
+  menos+=Number(obj.valor)
+}
+})
+
+let saldyy = soma-menos
+
+
+
   return (
     <>
       <h1> Olá, {currentUser.name} </h1>
@@ -52,7 +69,7 @@ export default function Feed() {
 
             <SaldoSty>
               <h3>SALDO</h3>
-              <h4>R$ {saldo}</h4>
+              <h4>R$ {saldyy}</h4>
             </SaldoSty>
           </>
         )}

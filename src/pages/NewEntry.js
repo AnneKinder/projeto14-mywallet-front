@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 export default function NewEntry() {
   const navigate = useNavigate()
 
-  const {token, setToken} = React.useContext(AuthContext)
+  const {token, setToken, currentUser} = React.useContext(AuthContext)
 
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -19,8 +19,9 @@ export default function NewEntry() {
     valor: valor,
     descricao: descricao,
     data: dayjs().format("DD/MM"),
-    type: "entry"
-    //token
+    type: "entry",
+    email: currentUser.email
+    
   };
 
   function sendEntry(e) {

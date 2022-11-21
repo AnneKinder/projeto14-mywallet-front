@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 export default function NewExit() {
   const navigate = useNavigate()
 
-  const {token, setToken} = React.useContext(AuthContext)
+  const {token, setToken, currentUser} = React.useContext(AuthContext)
 
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -19,8 +19,9 @@ export default function NewExit() {
     valor: valor,
     descricao: descricao,
     data: dayjs().format("DD/MM"),
-    type: "exit"
-    //token
+    type: "exit",
+    email: currentUser.email
+  
   };
 
   function sendExit(e) {
@@ -31,7 +32,6 @@ export default function NewExit() {
 
       axios.post("http://localhost:5000/new-exit", exit)
       .then((res) => {
-        console.log(res.data)
         navigate("/feed")
       })
       .catch((err) => alert(err.response.data))

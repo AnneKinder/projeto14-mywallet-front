@@ -27,6 +27,7 @@ const {token, setToken, currentUser, setCurrentUser} = React.useContext(AuthCont
         .post("http://localhost:5000/", body)
         .then((res) => {
           setToken(res.data.token)
+          console.log(res.data)
           setCurrentUser(res.data.user)
           navigate("/feed");
         })
