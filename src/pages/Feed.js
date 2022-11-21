@@ -4,16 +4,13 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import dayjs from "dayjs";
 
 export default function Feed() {
   const navigate = useNavigate();
 
   const { token, setToken } = React.useContext(AuthContext);
   const { currentUser, setCurrentUser } = React.useContext(AuthContext);
-
   const [moves, setMoves] = useState([]);
-  const [saldo, setSaldo] = useState("");
 
   const config = {
     headers: {
@@ -25,28 +22,24 @@ export default function Feed() {
     axios
       .get("http://localhost:5000/feed", config)
       .then((res) => {
-        setMoves(res.data[0]);
-        setSaldo(res.data[1]);
+        setMoves(res.data);
       })
       .catch((err) => console.log(err.response.data));
   }, []);
 
+  let more = 0;
+  let less = 0;
+  moves.map((obj) => {
+    if (obj.type === "entry") {
+      more += Number(obj.valor);
+    }
 
-let soma = 0
-let menos = 0
-moves.map((obj)=>{
-if(obj.type==="entry"){
-soma+= Number(obj.valor)
-}
+    if (obj.type === "exit") {
+      less += Number(obj.valor);
+    }
+  });
 
-if(obj.type==="exit"){
-  menos+=Number(obj.valor)
-}
-})
-
-let saldyy = soma-menos
-
-
+  let saldo = more - less;
 
   return (
     <>
@@ -69,7 +62,7 @@ let saldyy = soma-menos
 
             <SaldoSty>
               <h3>SALDO</h3>
-              <h4>R$ {saldyy}</h4>
+              <h4>R$ {saldo}</h4>
             </SaldoSty>
           </>
         )}
