@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { AuthContext } from "../context/auth.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 import logo from "../assets/logo.png";
 
 export default function SignIn() {
   const navigate = useNavigate();
 
-const {token, setToken, currentUser, setCurrentUser} = React.useContext(AuthContext)
+  const { setToken, setCurrentUser } = React.useContext(AuthContext);
 
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,9 +26,8 @@ const {token, setToken, currentUser, setCurrentUser} = React.useContext(AuthCont
       axios
         .post("http://localhost:5000/", body)
         .then((res) => {
-          setToken(res.data.token)
-          console.log(res.data)
-          setCurrentUser(res.data.user)
+          setToken(res.data.token);
+          setCurrentUser(res.data.user);
           navigate("/feed");
         })
         .catch((err) => alert(err.response.data));
@@ -100,7 +99,7 @@ const SignInSty = styled.div`
   button {
     width: 303px;
     height: 45px;
-    background: #A328D6;
+    background: #a328d6;
     border-radius: 4.63636px;
     font-weight: 400;
     font-size: 20.976px;

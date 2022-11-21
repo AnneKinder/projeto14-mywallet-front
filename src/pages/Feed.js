@@ -64,7 +64,7 @@ export default function Feed() {
               <h3>SALDO</h3>
               <h4>R$ {saldo}</h4>
             </SaldoSty>
-          </>
+            </>
         )}
       </RegistryList>
       <AddContainer>
@@ -101,6 +101,7 @@ const RegistryList = styled.div`
     color: #868686;
     margin: 200px 40px;
   }
+
 `;
 
 const AddContainer = styled.div`
